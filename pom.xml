@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>tech.lity.rea</groupId>
+    <artifactId>ColorConverter</artifactId>
+    <version>0.1</version>
+    <packaging>jar</packaging>
+
+    <name>ColorConverterimplePointCloud</name>
+    <description>ColorConverter</description>
+    <url>https://github.com/Rea-lity-Tech/ColorConverter</url>
+<!-- From ImageJ, Public Domain - https://imagej.nih.gov/ij/ -->
+    
+    <licenses>
+        <license>
+            <name>Public domain</name>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.build.timestamp.format>yyyyMMddhhmm</maven.build.timestamp.format>
+        <javacpp.version>1.4</javacpp.version>
+    </properties>
+  
+    <distributionManagement>
+        <repository>
+            <id>public</id>
+            <url>http://forum.rea.lity.tech:8081/repository/public/</url>
+        </repository>
+    </distributionManagement>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <configuration>
+                    <docencoding>utf-8</docencoding>
+                    <failOnError>false</failOnError>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+    
+    <build> 
+        <sourceDirectory>src</sourceDirectory>
+        <testSourceDirectory>test</testSourceDirectory>
+        <outputDirectory>target/classes</outputDirectory>
+        
+        <plugins> 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.2</version>
+                <!--                <configuration>
+                    <finalName>scannerPapart</finalName>                   
+                </configuration>-->
+            </plugin>  
+        
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        
+        <resources>
+            
+            <resource>
+                <directory>src</directory>
+                <includes>
+                    <include>**/*.vert</include>
+                    <include>**/*.frag</include>
+                    <include>**/*.glsl</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+    
+</project>
