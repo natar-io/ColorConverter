@@ -13,9 +13,17 @@ void setup(){
 void draw(){
     background(0);
 
-    int x = constrain(mouseX - 200, -128, 128);
-    int y = constrain(mouseY - 200, -128, 128);
-    int[] rgb1 = converter.LABtoRGB(50, x, y );
+    int max = 128;
+    fill(255);
+    rect(0, 0, max *2, max*2);
+
+
+    int x = constrain(mouseX - max, -max, max);
+    int y = constrain(mouseY - max, -max, max);
+
+    int l = 44;
+    println("lab : " + l + " " + x + " " + y);
+    int[] rgb1 = converter.LABtoRGB(l, x, y );
     
     println("rgb: " + rgb1[0] + "  "  +rgb1[1]  + " " + rgb1[2]);
     fill(rgb1[0], rgb1[1], rgb1[2]);
