@@ -7,6 +7,10 @@ Simple Point cloud library for Processing. It is used in PapARt, examples to com
 
 This library is distributed as a Processing library, or external library integrable with Maven. 
 
+* Processing library: https://github.com/Rea-lity-Tech/ColorConverter/releases/download/0.1/ColorConverter.tgz
+* Maven repository: 
+  http://forum.rea.lity.tech:8081/#artifact/tech.lity.rea/ColorConverter 
+
 ### Source
 
 This source is adapted from [ImageJ](https://imagej.nih.gov/ij/), and published in the public domain. 
