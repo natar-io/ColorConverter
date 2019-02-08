@@ -6,7 +6,7 @@
     <version>0.1</version>
     <packaging>jar</packaging>
 
-    <name>ColorConverterimplePointCloud</name>
+    <name>ColorConverter</name>
     <description>ColorConverter</description>
     <url>https://github.com/Rea-lity-Tech/ColorConverter</url>
 <!-- From ImageJ, Public Domain - https://imagej.nih.gov/ij/ -->
@@ -71,7 +71,7 @@
                 </configuration>
             </plugin>
             
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
@@ -84,7 +84,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
         
         <resources>
