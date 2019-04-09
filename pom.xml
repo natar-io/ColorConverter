@@ -18,6 +18,24 @@
         </license>
     </licenses>
     
+    
+    <developers>
+        <developer>
+            <name>Wayne Rasband</name>
+            <url>https://imagej.nih.gov/ij/docs/intro.html</url>
+            <roles>
+                <role>Author</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Jeremy Laviole</name>
+            <url>http://rea.lity.tech</url>
+            <roles>
+                <role>Processing version and distribution</role>
+            </roles>
+        </developer>
+    </developers>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>yyyyMMddhhmm</maven.build.timestamp.format>
@@ -30,6 +48,13 @@
             <url>http://forum.rea.lity.tech:8081/repository/public/</url>
         </repository>
     </distributionManagement>
+    
+    
+    <scm>
+        <url>https://github.com/Rea-lity-Tech/ColorConverter</url>
+        <connection>scm:git:git@github.com:Rea-lity-Tech/ColorConverter.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:Rea-lity-Tech/ColorConverter.git</developerConnection>
+    </scm>
 
     <reporting>
         <plugins>
@@ -71,10 +96,73 @@
                 </configuration>
             </plugin>
             
-<!--            <plugin>
+               <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.1</version>
+                <!--https://maven.apache.org/plugins/maven-javadoc-plugin/examples/tag-configuration.html-->
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                    <!--                    <tags>
+                        <tag>
+                            <name>webref</name>
+                            todo tag for all places
+                            <placement>a</placement>
+                            <head>link to website: </head>
+                        </tag>
+                        <tag>
+                            <name>nowebref</name>
+                            todo tag for all places
+                            <placement>a</placement>
+                            <head>no link to website:</head>
+                        </tag>
+                    </tags>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <executions>
+                    <execution>
+                        <id>default-clean</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>1.6</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -84,7 +172,20 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+
         </plugins>
         
         <resources>
